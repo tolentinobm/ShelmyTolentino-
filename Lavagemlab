@@ -1,0 +1,36 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float moveSpeed = 5f; // Velocidade de movimento do jogador
+    public GameObject victoryPanel; // Painel que aparece ao vencer
+    private Vector3 startPosition;
+
+    void Start()
+    {
+        startPosition = transform.position; // Salva a posição inicial do jogador
+        victoryPanel.SetActive(false); // Esconde o painel de vitória no início
+    }
+
+    void Update()
+    {
+        MovePlayer();
+    }
+
+    void MovePlayer()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal"); // Captura o movimento horizontal
+        float moveVertical = Input.GetAxis("Vertical"); // Captura o movimento vertical
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical); // Cria um vetor de movimento
+        transform.position += movement * moveSpeed * Time.deltaTime; // Move o jogador
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Detergente")) // Verifica se o jogador colidiu com o detergente
+        {
+            victoryPanel.SetActive(true); // Ativa o painel de vitória
+            Destroy(other.gameObject); // Remove o detergente do jogo
+        }
+    }

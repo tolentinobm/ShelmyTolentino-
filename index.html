@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Labirinto da Cidade</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #87CEEB; /* Céu */
+    }
+    h1 {
+      margin: 10px;
+    }
+    canvas {
+      display: block;
+      border: 2px solid #000;
+      background-color: #ADFF2F; /* Grama */
+    }
+    #instructions {
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Labirinto da Cidade</h1>
+  <p id="instructions">Colete todos os itens para lavar o carro e dirija-o de volta ao início para vencer!</p>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <script src="game.js"></script>
+</body>
+</html>
